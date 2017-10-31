@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  private products: Array<Product>;
+   private products: Array<Product>;
 
   constructor() { }
 

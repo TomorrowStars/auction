@@ -12,12 +12,21 @@ import { AppComponent } from './app.component';/*根组件*///
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
+import { HomeComponent } from './home/home.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component'
+import { Routes, RouterModule } from "@angular/router";
+
+const routeConfig: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'product/:prodTitle', component: ProductDetailComponent},
+];
+
+
 /*@NgModule 装饰器将 AppModule 标记为 Angular 模块类（也叫 NgModule 类）。
 @NgModule 接受一个元数据对象，告诉 Angular 如何编译和启动应用。*/
-
 @NgModule({
   declarations: [/*引入当前项目运行的的组件*/
     AppComponent,
@@ -26,12 +35,15 @@ import { StarsComponent } from './stars/stars.component'
     SearchComponent, 
     CarouselComponent, 
     ProductComponent, 
-    StarsComponent
+    StarsComponent,
+    HomeComponent,
+    ProductDetailComponent
   ],
   imports: [/*引入当前模块运行依赖的其他模块*/
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],/*定义的服务  回头放在这个里面*/
   bootstrap: [AppComponent]/* 指定应用的主视图（称为根组件） 通过引导根 AppModule 来启动

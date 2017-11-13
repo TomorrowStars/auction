@@ -18,10 +18,11 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component'
 import { Routes, RouterModule } from "@angular/router";
+import { ProductService } from "./shared/product.service";
 
 const routeConfig: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'product/:prodTitle', component: ProductDetailComponent},
+  {path: 'product/:productId', component: ProductDetailComponent},
 ];
 
 
@@ -45,7 +46,7 @@ const routeConfig: Routes = [
     HttpModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [],/*定义的服务  回头放在这个里面*/
+  providers: [ProductService],/*定义的服务  回头放在这个里面*/
   bootstrap: [AppComponent]/* 指定应用的主视图（称为根组件） 通过引导根 AppModule 来启动
 应用  ，这里一般写的是根组件*/
 })

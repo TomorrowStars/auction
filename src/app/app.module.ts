@@ -6,7 +6,7 @@
 import { BrowserModule } from '@angular/platform-browser';/*BrowserModule，浏览器解
 析的模块*/
 import { NgModule } from '@angular/core';/*angualrjs 核心模块*/;
-import { FormsModule } from '@angular/forms';/*表单数据绑定 表单验证需要的模块*/
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';/*表单数据绑定 表单验证需要的模块*/
 import { HttpModule } from '@angular/http';/*数据请求模块*/ 
 import { AppComponent } from './app.component';/*根组件*/// 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductComponent } from './product/product.component';
+import { FilterPipe } from './pipe/filter.pipe';
 import { StarsComponent } from './stars/stars.component'
 import { Routes, RouterModule } from "@angular/router";
 import { ProductService } from "./shared/product.service";
@@ -38,13 +39,15 @@ const routeConfig: Routes = [
     ProductComponent, 
     StarsComponent,
     HomeComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FilterPipe
   ],
   imports: [/*引入当前模块运行依赖的其他模块*/
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig),
+    ReactiveFormsModule
   ],
   providers: [ProductService],/*定义的服务  回头放在这个里面*/
   bootstrap: [AppComponent]/* 指定应用的主视图（称为根组件） 通过引导根 AppModule 来启动

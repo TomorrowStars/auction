@@ -16,6 +16,16 @@
 </div>
 
 <div>
+    <div>
+        <div>
+            <app-stars [(rating)]="newRating" [readonly]="false"></app-stars>
+            <textarea [(ngModel)]="newComment"></textarea>
+        </div>
+        <div>
+            <button class="btn" (click)="addComment()">追加评价</button>
+            
+        </div>
+    </div>
     <div class="row" *ngFor="let comment of comments">
         <hr>
         <div class="col-md-12">

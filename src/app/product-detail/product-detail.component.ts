@@ -31,9 +31,13 @@ export class ProductDetailComponent implements OnInit {
   addComment(){
     let comment = new Comment(0, this.product.id, new Date().toISOString(), "someOne", this.newRating, this.newComment);
     this.comments.unshift(comment);
-    
+
     this.newComment = "";
     this.newRating = 5;
     this.isCommentHidden = true;
+
+    let sum = this.comments.reduce((sum, comment)=> sum + comment.rating, 0);
+    this.product.rating = sum/this.comments.length;
+
   }
 }

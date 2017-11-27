@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
 
   formModel: FormGroup;
   categories: string[];
+  errorFlg = false;
 
 
   constructor(private productService: ProductService, private router: Router) {
@@ -39,10 +40,12 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  onSearch(){
+  onSearch() {
     if (this.formModel.valid) {
       console.log(this.formModel.value);
       this.router.navigate(['/']);
+    } else {
+      this.errorFlg = true;
     }
   }
 
